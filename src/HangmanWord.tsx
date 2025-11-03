@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 type HangmanWordProps = {
-  guessedLetters: string[]; // expected letters (any case) from parent/keyboard
+  guessedLetters: string[];
   wordGuess: string;        // the target word (any case)
   reveal?: boolean;
   shake?: boolean;
