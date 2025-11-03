@@ -1,4 +1,3 @@
-// Keyboard.tsx
 import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
@@ -15,27 +14,21 @@ const KEYS = [
 ];
 
 const Keyboard = ({ onLetterClick, disabledLetters = [] }: KeyboardProps) => {
-  // store pressed letters normalized to uppercase
   const [pressedLetters, setPressedLetters] = useState<string[]>([]);
 
-  // normalize disabled letters once
   const normalizedDisabled = Array.from(
     new Set(disabledLetters.map((l) => l.toUpperCase()))
   );
 
-  // useCallback to keep stable reference if you pass it down
-  const handleClick = useCallback(
+ const handleClick = useCallback(
     (rawLetter: string) => {
       const letter = rawLetter.toUpperCase();
 
-      // use functional update to avoid race conditions
       setPressedLetters((prev) => {
         if (prev.includes(letter) || normalizedDisabled.includes(letter)) {
-          // return prev unchanged if already pressed or disabled
           return prev;
         }
 
-        // fire callback with normalized letter
         if (onLetterClick) onLetterClick(letter);
 
         return [...prev, letter];
@@ -44,7 +37,6 @@ const Keyboard = ({ onLetterClick, disabledLetters = [] }: KeyboardProps) => {
     [onLetterClick, normalizedDisabled]
   );
 
-  // hardware keyboard support (only attaches once)
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       const letter = e.key.toUpperCase();

@@ -1,9 +1,8 @@
-// HangmanWord.tsx
 import { motion } from "framer-motion";
 
 type HangmanWordProps = {
   guessedLetters: string[];
-  wordGuess: string;        // the target word (any case)
+  wordGuess: string;
   reveal?: boolean;
   shake?: boolean;
 };
@@ -14,16 +13,14 @@ const HangmanWord = ({
   reveal = false,
   shake = false,
 }: HangmanWordProps) => {
-  // Normalize everything to uppercase for consistent comparisons
+ 
   const normalizedWord = wordGuess.toUpperCase();
   const firstLetter = normalizedWord[0];
 
-  // Normalize guessed letters too, and make unique
   const normalizedGuessed = Array.from(
     new Set(guessedLetters.map((l) => l.toUpperCase()))
   );
 
-  // Ensure the first letter is always revealed (if that's desired)
   const enhancedGuessed = Array.from(new Set([...normalizedGuessed, firstLetter]));
 
   const containerVariants = {

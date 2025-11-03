@@ -1,4 +1,3 @@
-// App.tsx
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button, Modal, Select, Tooltip } from "antd";
@@ -117,7 +116,6 @@ const App = () => {
         {isWinner ? "🎉 You Win!" : isLoser ? "💀 You Lose!" : "🧩 Guess the Word!"}
       </motion.h1>
 
-      {/* Difficulty Selector */}
       <div className="mt-3">
         <Select
           value={difficulty}
@@ -130,7 +128,6 @@ const App = () => {
         </Select>
       </div>
 
-      {/* Guesses Left Indicator */}
       <div className="mt-4 text-lg font-semibold">
         Guesses Left: {MAX_GUESSES - guessLetters.length}
       </div>
