@@ -195,7 +195,7 @@ const App = () => {
       {/* Footer */}
 <footer className="mt-10 text-center text-sm text-gray-600 py-4">
   <p>
-    © {new Date().getFullYear()} <span className="font-semibold text-[#083b75]">WordPlay Game</span> — 
+    © {new Date().getFullYear()} <span className="font-semibold text-[#083b75]">WordMaze</span> — 
     Built with ❤️ by <span className="text-[#9B59B6] font-semibold">Akbar Qureshi</span>.
   </p>
   <p className="mt-1">All rights reserved.</p>
